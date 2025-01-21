@@ -1,0 +1,90 @@
+/* 
+    ********************************************************************
+    * IMPORTANTE:                                                     *
+    * Este archivo CSS es crucial para el funcionamiento de la plataforma. *
+    * NO BORRAR este archivo. Si se elimina por error, revisar el      *
+    * repositorio para recuperarlo:                                    *
+    * https://github.com/NakamaStream/NakamaStream/tree/main/src/public/css *
+    ********************************************************************
+*/
+
+.admin-badge, .member-badge {
+    padding: 4px 8px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.admin-badge {
+    background: #ff4757;
+    color: #fff;
+    animation: adminPulse 3s infinite;
+}
+
+.member-badge {
+    background: #1e90ff;
+    color: #fff;
+    animation: memberGlow 4s infinite;
+}
+
+.admin-badge::after, .member-badge::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: rotate(30deg);
+    transition: all 0.3s ease;
+}
+
+.admin-badge span, .member-badge span {
+    position: relative;
+    z-index: 1;
+}
+
+/* Animación mejorada para admin-badge */
+@keyframes adminPulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(255, 71, 87, 0.7);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 10px rgba(255, 71, 87, 0);
+    }
+}
+
+/* Nueva animación para member-badge */
+@keyframes memberGlow {
+    0%, 100% {
+        box-shadow: 0 0 5px rgba(30, 144, 255, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(30, 144, 255, 0.8);
+    }
+}
+
+/* Efectos hover */
+.admin-badge:hover, .member-badge:hover {
+    transform: translateY(-2px);
+}
+
+.admin-badge:hover::after, .member-badge:hover::after {
+    top: -75%;
+    left: -75%;
+    transition: all 0.5s ease;
+}
+
+.admin-badge:hover {
+    background: #ff6b81;
+}
+
+.member-badge:hover {
+    background: #47a3ff;
+}
